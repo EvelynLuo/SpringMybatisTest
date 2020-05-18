@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>bootstrap-table使用</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"/>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-table/1.16.0/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+
+
+</head>
+<body>
+<table id="tb_departments"></table>
+</body>
+<script type="text/javascript">
+    $(function(){
+        var oTable = TableInit();
+        oTable.Init();
+    });
+
+    function TableInit() {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function() {
+            $('#tb_departments').bootstrapTable({
+                url: "/testCommD/getPage",
+                pagination: true, //分页
+                search: false, //显示搜索框
+                sidePagination: "server", //服务端处理分页
+                pageNumber: 1,                       //初始化加载第一页，默认第一页
+                pageSize: 5,                       //每页的记录行数（*）
+                responseHandler:function(res) {
+                    return {
+                        "total":res.total,//总页数
+                        "rows": res.data //数据
+                    }
+                },
+                columns: [
+                    {
+                        title: '序号',//标题  可不加
+                        width:'64px',
+                        align: 'center',
+                        valign: 'middle',
+                        formatter: function (value, row, index) {
+                            return index+1;
+                        }
+                    },
+                    //idCommDisaster,disasterID,disasterDate,location,disasterType,grade,picture,note,reportingUnit
+                    {
+                        title: 'id',
+                        field: 'idCommDisaster',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '灾情ID',
+                        field: 'disasterID',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '时间',
+                        field: 'disasterDate',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '地点',
+                        field: 'location',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '类型',
+                        field: 'disasterType',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '等级',
+                        field: 'grade',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '图片',
+                        field: 'picture',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '备注',
+                        field: 'note',
+                        align: 'center',
+                        valign: 'middle',
+                    },
+                    {
+                        title: '报告单元',
+                        field: 'reportingUnit',
+                        align: 'center',
+                        valign: 'middle',
+                    }
+                ]
+            });
+        };
+        return oTableInit;
+    };
+
+
+    function selBycondition(){
+        var url = "/testCommD/getPage?name=aaa";
+        $("#tb_departments").bootstrapTable('refresh',{'url':url});
+    };
+
+</script>
+</html>
