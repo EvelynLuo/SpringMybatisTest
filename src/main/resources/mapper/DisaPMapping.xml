@@ -21,8 +21,8 @@
         select * from disasterprediction
     </select>
     <!--按照ID查询-->
-    <select id="query" parameterType="int" resultType="com.example.demo.entity.DisaPrediction">
-        select * from disasterprediction where disasterprediction.idDisaPrediction=#{idDisaPrediction}
+    <select id="query" parameterType="CHAR" resultType="com.example.demo.entity.DisaPrediction">
+        select * from disasterprediction where disasterprediction.disasterID=#{disasterID}
     </select>
     <!--插入一条新数据-->
     <insert id="insert" parameterType="com.example.demo.entity.DisaPrediction">

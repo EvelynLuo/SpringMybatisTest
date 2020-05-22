@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface CollRecordMapper {
-    CollRecord query(int ID);//按照id查询查询
+    CollRecord query(String disasterID);//按照id查询查询
 
     List<CollRecord> queryAll();//全部查询
 

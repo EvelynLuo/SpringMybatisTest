@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface CivilSMapper {
-    CivilStructure query(int ID);
+    CivilStructure query(String disasterID);
     int insert(CivilStructure civilStructure);
     int delete(int ID);
 

@@ -15,15 +15,13 @@ public class DisaPredictionService {
     @Autowired(required = false)
     private DisaPredictionMapper disaPredictionMapper;
 
-    public DisaPrediction query(int id) {
-        return disaPredictionMapper.query(id);
+    public DisaPrediction query(String disasterID) {
+        return disaPredictionMapper.query(disasterID);
     }
 
     public List<DisaPrediction> queryAll() {
         return disaPredictionMapper.queryAll();
     }
-
-    ;
 
     public int insert(DisaPrediction dp) {
         return disaPredictionMapper.insert(dp);
@@ -37,19 +35,22 @@ public class DisaPredictionService {
         return disaPredictionMapper.update(dp);
     }
 
-    public Map<String,Object> getPage(Integer limit, Integer offset){
-        Map<String,Object> resultMap = new HashMap();
+    public Map<String, Object> getPage(Integer limit, Integer offset) {
+        Map<String, Object> resultMap = new HashMap();
         List<DisaPrediction> userList = null;
         Integer total = 0;
         try {
-            userList = disaPredictionMapper.getpage(offset,limit);
+            userList = disaPredictionMapper.getpage(offset, limit);
             total = disaPredictionMapper.findAllCount();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        resultMap.put("data",userList);
-        resultMap.put("total",total);
+        resultMap.put("data", userList);
+        resultMap.put("total", total);
         return resultMap;
     }
-    public List<DisaPrediction> findAll(){return disaPredictionMapper.findAll();}
+
+    public List<DisaPrediction> findAll() {
+        return disaPredictionMapper.findAll();
+    }
 }

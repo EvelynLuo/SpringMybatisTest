@@ -12,8 +12,8 @@
         <result column="note" jdbcType="VARCHAR" property="note"/>
         <result column="reportingUnit" jdbcType="VARCHAR" property="reportingUnit"/>
     </resultMap>
-    <select id="query" parameterType="int" resultType="com.example.demo.entity.CivilStructure">
-        select * from civilstructure where civilstructure.idCivilStructure=#{idCivilStructure}
+    <select id="query" parameterType="CHAR" resultType="com.example.demo.entity.CivilStructure">
+        select * from civilstructure where civilstructure.disasterID=#{disasterID}
     </select>
     <!--插入一条新数据-->
     <insert id="insert" parameterType="com.example.demo.entity.CivilStructure">

@@ -8,8 +8,8 @@
         <result column="numberDeath" jdbcType="INTEGER" property="numberDeath"/>
         <result column="reportingUnit" jdbcType="VARCHAR" property="reportingUnit"/>
     </resultMap>
-    <select id="query" parameterType="int" resultType="com.example.demo.entity.DeathStatistics">
-        select * from deathstatistics where deathstatistics.idDeathStatistics=#{idDeathStatistics}
+    <select id="query" parameterType="CHAR" resultType="com.example.demo.entity.DeathStatistics">
+        select * from deathstatistics where deathstatistics.disasterID=#{disasterID}
     </select>
     <!--插入一条新数据-->
     <insert id="insert" parameterType="com.example.demo.entity.DeathStatistics">

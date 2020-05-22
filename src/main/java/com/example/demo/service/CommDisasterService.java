@@ -22,9 +22,7 @@ public class CommDisasterService {
 
     public List<CommDisaster> queryAll(){return commDisasterMapper.queryAll();}
 
-    public List<CommDisaster> query19(String disasterID){return commDisasterMapper.query19(disasterID);}
-
-    public CommDisaster query(int disasterID){return commDisasterMapper.query(disasterID);}
+    public CommDisaster query(String disasterID){return commDisasterMapper.query(disasterID);}
 
     public int insert(CommDisaster commDisaster){return commDisasterMapper.insert(commDisaster);}
 

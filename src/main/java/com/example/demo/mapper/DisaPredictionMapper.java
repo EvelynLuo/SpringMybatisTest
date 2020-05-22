@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface DisaPredictionMapper {
-    DisaPrediction query(int ID);
+    DisaPrediction query(String disasterID);
     List<DisaPrediction> queryAll();
     int insert(DisaPrediction dp);
     int delete(int ID);

@@ -12,6 +12,8 @@ public class DeathService {
     @Autowired(required = false)
     private DeathMapper mapper;
 
+    public DeathStatistics query(String disasterID){return mapper.query(disasterID);}
+
     public int insert(DeathStatistics structure){return mapper.insert(structure);}
 
     public int delete(int ID){return mapper.delete(ID);}

@@ -17,7 +17,7 @@ public class CollRecordService {
     @Autowired(required = false)
     private CollRecordMapper collRecordMapper;
 
-    public CollRecord query(int id){return collRecordMapper.query(id);}//按照19位编码查询查询
+    public CollRecord query(String disasterID){return collRecordMapper.query(disasterID);}//按照19位编码查询查询
 
     public List<CollRecord> queryAll(){return collRecordMapper.queryAll();}//全部查询
 
@@ -26,8 +26,6 @@ public class CollRecordService {
     public int delete(int id){return collRecordMapper.delete(id);}//按照id删除
 
     public int update(CollRecord collRecord){return collRecordMapper.update(collRecord);}//修改数据
-
-    public List<CollRecord> query19(String disasterID){return collRecordMapper.query19(disasterID);}//按照19位编码查询
 
     public int delete19(String disasterID){return collRecordMapper.delete19(disasterID);}
 

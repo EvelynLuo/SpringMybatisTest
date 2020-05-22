@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface CommDisasterMapper {
 
-    CommDisaster query(int disasterID);//按照ID查询
+
 
     List<CommDisaster> queryAll();//全部查询
 
@@ -21,7 +21,7 @@ public interface CommDisasterMapper {
 
     int update(CommDisaster commDisaster);//修改数据
 
-    List<CommDisaster> query19(String disasterID);//按照19位编码查询
+    CommDisaster query(String disasterID);//按照19位编码查询
 
     int delete19(String disasterID);
 

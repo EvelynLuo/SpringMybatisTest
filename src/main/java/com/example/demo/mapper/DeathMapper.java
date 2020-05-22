@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface DeathMapper {
     //update19
-    DeathStatistics query(int ID);
+    DeathStatistics query(String disasterID);
     int insert(DeathStatistics d);
     int delete(int id);
     List<DeathStatistics> getpage(@Param("stratRow") Integer stratRow, @Param("endRow") Integer endRow);

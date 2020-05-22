@@ -15,6 +15,8 @@ public class CivilSService {
     @Autowired(required = false)
     private CivilSMapper civilSMapper;
 
+    public CivilStructure query(String disasterID){return civilSMapper.query(disasterID);}
+
     public int insert(CivilStructure structure){return civilSMapper.insert(structure);}
 
     public int update(CivilStructure civilStructure){return civilSMapper.update(civilStructure);}

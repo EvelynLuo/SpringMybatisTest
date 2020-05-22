@@ -16,10 +16,7 @@
     <select id="queryAll" resultType="com.example.demo.entity.CollRecord">
         select * from collapserecord
     </select>
-    <!--按照ID查询-->
-    <select id="query" parameterType="int" resultType="com.example.demo.entity.CollRecord">
-        select * from collapserecord where collapserecord.idCollRecord=#{idCollRecord}
-    </select>
+
     <!--插入一条新数据-->
     <insert id="insert" parameterType="com.example.demo.entity.CollRecord">
         insert into collapserecord (disasterID, location, disasterDate, disasterType, status,note, picture, reportingUnit)values (#{disasterID},#{location},#{disasterDate},#{disasterType},#{status},#{note},#{picture},#{reportingUnit})
@@ -37,7 +34,7 @@
 
 
     <!--按照19位编码查询-->
-    <select id="query19" parameterType="CHAR" resultType="com.example.demo.entity.CollRecord">
+    <select id="query" parameterType="CHAR" resultType="com.example.demo.entity.CollRecord">
         select * from collapserecord where collapserecord.disasterID=#{disasterID}
     </select>
     <!--按照19位编码删除-->
