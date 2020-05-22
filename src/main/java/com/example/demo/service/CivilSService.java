@@ -17,6 +17,8 @@ public class CivilSService {
 
     public int insert(CivilStructure structure){return civilSMapper.insert(structure);}
 
+    public int update(CivilStructure civilStructure){return civilSMapper.update(civilStructure);}
+
     public int delete(int ID){return civilSMapper.delete(ID);}
 
     public Map<String,Object> getPage(Integer limit, Integer offset){

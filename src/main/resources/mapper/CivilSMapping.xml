@@ -20,6 +20,11 @@
         insert into civilstructure (disasterID, disasterDate,location, intactSquare, damagedSquare,destroyedSquare,note, reportingUnit)
         values (#{disasterID},#{disasterDate},#{location},#{intactSquare},#{damagedSquare},#{destroyedSquare},#{note},#{reportingUnit})
     </insert>
+    <!--修改数据-->
+    <update id="update" parameterType="com.example.demo.entity.CivilStructure">
+    update civilstructure set disasterDate=#{disasterDate},location=#{location},
+    intactSquare=#{intactSquare},damagedSquare=#{damagedSquare},destroyedSquare=#{destroyedSquare},note=#{note},reportingUnit=#{reportingUnit} where civilstructure.disasterID =#{disasterID}
+</update>
     <!--按照id删除-->
     <delete id="delete" parameterType="int">
         delete from civilstructure where civilstructure.idCivilStructure=#{idCivilStructure}

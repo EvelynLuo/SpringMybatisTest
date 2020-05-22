@@ -18,4 +18,5 @@ public interface CivilSMapper {
     Integer findAllCount();
 
     List<CivilStructure> findAll();
+    int update(CivilStructure civilStructure);
 }
