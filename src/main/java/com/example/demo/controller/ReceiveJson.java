@@ -85,7 +85,7 @@ public class ReceiveJson {
 
 
 
-        commDisasterService.InsertCD(commDisaster);
+        commDisasterService.insert(commDisaster);
 
         return "index";
         //return jsonObject.toString();
