@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.DisaPrediction;
+import com.example.demo.entity.DisasterRequest;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DisaPredictionMapperTest {
+class DisasterRequestMapperTest {
+
     private static SqlSession sqlSession = null;
     private static SqlSessionFactory sqlSessionFactory = null;
 
@@ -28,18 +28,16 @@ class DisaPredictionMapperTest {
     }
 
 
-
     @Test
     void insert() {
-        DisaPrediction d = new DisaPrediction();
-        d.setDisasterID("test");
+        DisasterRequest d = new DisasterRequest();
+        d.setDisasterID("1234567891234562111");
         d.setDisasterDate("202005131044");
-        d.setLocation("台湾省测试");
-        int result = sqlSession.insert("com.example.demo.mapper.DisaPredictionMapper.insert",d);
+
+        int result = sqlSession.insert("com.example.demo.mapper.DisasterRequestMapper.insert",d);
         sqlSession.commit();
         if (result > 0)
             System.out.println("存储成功");
         else System.out.println("存储失败");
     }
-
 }

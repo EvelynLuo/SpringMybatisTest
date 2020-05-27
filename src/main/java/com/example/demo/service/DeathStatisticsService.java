@@ -1,16 +1,18 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.DeathStatistics;
-import com.example.demo.mapper.DeathMapper;
+import com.example.demo.mapper.DeathStatisticsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DeathService {
+@Service
+public class DeathStatisticsService {
     @Autowired(required = false)
-    private DeathMapper mapper;
+    private DeathStatisticsMapper mapper;
 
     public DeathStatistics query(String disasterID){return mapper.query(disasterID);}
 

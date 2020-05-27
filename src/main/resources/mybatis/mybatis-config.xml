@@ -12,6 +12,15 @@
         <typeAlias alias="collapserecord" type="com.example.demo.entity.CollRecord"/>
         <typeAlias alias="commdisaster" type="com.example.demo.entity.CommDisaster"/>
         <typeAlias alias="disasterprediction" type="com.example.demo.entity.DisaPrediction"/>
+        <typeAlias alias="civilstructure" type="com.example.demo.entity.CivilStructure"/>
+        <typeAlias alias="deathstatistics" type="com.example.demo.entity.DeathStatistics"/>
+        <typeAlias alias="disasterinfo" type="com.example.demo.entity.DisasterInfo"/>
+        <typeAlias alias="landsliderecord" type="com.example.demo.entity.LandslideRecord"/>
+        <typeAlias alias="masonrystructure" type="com.example.demo.entity.MasonryStructure"/>
+        <typeAlias alias="missingstatics" type="com.example.demo.entity.MissingStatistics"/>
+        <typeAlias alias="trafficdisaster" type="com.example.demo.entity.TrafficDisaster"/>
     </typeAliases>
+
+
 
 </configuration>

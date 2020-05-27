@@ -13,23 +13,23 @@ import java.util.Map;
 @Service
 public class CivilSService {
     @Autowired(required = false)
-    private CivilSMapper civilSMapper;
+    private CivilSMapper mapper;
 
-    public CivilStructure query(String disasterID){return civilSMapper.query(disasterID);}
+    public CivilStructure query(String disasterID){return mapper.query(disasterID);}
 
-    public int insert(CivilStructure structure){return civilSMapper.insert(structure);}
+    public int insert(CivilStructure structure){return mapper.insert(structure);}
 
-    public int update(CivilStructure civilStructure){return civilSMapper.update(civilStructure);}
+    public int update(CivilStructure civilStructure){return mapper.update(civilStructure);}
 
-    public int delete(int ID){return civilSMapper.delete(ID);}
+    public int delete(int ID){return mapper.delete(ID);}
 
     public Map<String,Object> getPage(Integer limit, Integer offset){
         Map<String,Object> resultMap = new HashMap();
         List<CivilStructure> userList = null;
         Integer total = 0;
         try {
-            userList = civilSMapper.getpage(offset,limit);
-            total = civilSMapper.findAllCount();
+            userList = mapper.getpage(offset,limit);
+            total = mapper.findAllCount();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -37,5 +37,5 @@ public class CivilSService {
         resultMap.put("total",total);
         return resultMap;
     }
-    public List<CivilStructure> findAll(){return civilSMapper.findAll();}
+    public List<CivilStructure> findAll(){return mapper.findAll();}
 }

@@ -16,32 +16,32 @@ import java.util.Map;
 public class CommDisasterService {
 
     @Autowired(required = false)
-    private  CommDisasterMapper commDisasterMapper;
+    private  CommDisasterMapper mapper;
 
-    //public CommDisasterService(CommDisasterMapper commDisasterMapper){this.commDisasterMapper = commDisasterMapper;}
+    //public CommDisasterService(CommDisasterMapper mapper){this.mapper = mapper;}
 
-    public List<CommDisaster> queryAll(){return commDisasterMapper.queryAll();}
+    public List<CommDisaster> queryAll(){return mapper.queryAll();}
 
-    public CommDisaster query(String disasterID){return commDisasterMapper.query(disasterID);}
+    public CommDisaster query(String disasterID){return mapper.query(disasterID);}
 
-    public int insert(CommDisaster commDisaster){return commDisasterMapper.insert(commDisaster);}
+    public int insert(CommDisaster commDisaster){return mapper.insert(commDisaster);}
 
-    public int  delete(int id){return commDisasterMapper.delete(id);}
+    public int  delete(int id){return mapper.delete(id);}
 
-    public int  delete19(String disasterID){return commDisasterMapper.delete19(disasterID);}
+    public int  delete19(String disasterID){return mapper.delete19(disasterID);}
 
-    public  int update19(CommDisaster commDisaster){return commDisasterMapper.update19(commDisaster);}
+    public  int update19(CommDisaster commDisaster){return mapper.update19(commDisaster);}
 
 
-    public  int update(CommDisaster commDisaster){return commDisasterMapper.update(commDisaster);}
+    public  int update(CommDisaster commDisaster){return mapper.update(commDisaster);}
 
     public Map<String,Object> getPage(Integer limit, Integer offset){
         Map<String,Object> resultMap = new HashMap();
         List<CommDisaster> userList = null;
         Integer total = 0;
         try {
-            userList = commDisasterMapper.getpage(offset,limit);
-            total = commDisasterMapper.findAllCount();
+            userList = mapper.getpage(offset,limit);
+            total = mapper.findAllCount();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class CommDisasterService {
     }
 
     public List<CommDisaster> findAll(){
-        return  commDisasterMapper.findAll();
+        return  mapper.findAll();
     }
 
 }

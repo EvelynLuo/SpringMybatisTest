@@ -2,8 +2,14 @@ package com.example.demo.entity;
 
 import java.util.Arrays;
 
-public class CollRecord {
-    private int idCollRecord;
+/**
+ * @Data 2020/5/27 10:28
+ * @Author ruary
+ * @Version 1.0
+ * @Describe
+ **/
+public class LandslideRecord {
+    private int idLandslideRecord;
     private String disasterID;
     private String location;
     private String disasterDate;
@@ -13,19 +19,15 @@ public class CollRecord {
     private byte[] picture;
     private String reportingUnit;
 
-    public CollRecord() {
+    public LandslideRecord() {
     }
 
-    public CollRecord(String disasterID) {
-        this.disasterID = disasterID;
+    public int getIdLandslideRecord() {
+        return idLandslideRecord;
     }
 
-    public int getIdCollRecord() {
-        return idCollRecord;
-    }
-
-    public void setIdCollRecord(int idCollRecord) {
-        this.idCollRecord = idCollRecord;
+    public void setIdLandslideRecord(int idLandslideRecord) {
+        this.idLandslideRecord = idLandslideRecord;
     }
 
     public String getDisasterID() {
@@ -92,11 +94,10 @@ public class CollRecord {
         this.reportingUnit = reportingUnit;
     }
 
-
     @Override
     public String toString() {
-        return "CollRecord{" +
-                "idCollRecord=" + idCollRecord +
+        return "LandslideRecordMapper{" +
+                "idLandslideRecord=" + idLandslideRecord +
                 ", disasterID='" + disasterID + '\'' +
                 ", location='" + location + '\'' +
                 ", disasterDate='" + disasterDate + '\'' +

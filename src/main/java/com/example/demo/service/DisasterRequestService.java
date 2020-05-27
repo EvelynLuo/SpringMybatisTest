@@ -18,23 +18,23 @@ import java.util.Map;
 @Service
 public class DisasterRequestService {
     @Autowired(required = false)
-    private DisasterRequestMapper requestMapper;
+    private DisasterRequestMapper mapper;
 
-    public DisasterRequest query(String disasterID){return requestMapper.query(disasterID);}
+    public DisasterRequest query(String disasterID){return mapper.query(disasterID);}
 
-    public int insert(DisasterRequest disasterRequest){return requestMapper.insert(disasterRequest);}
+    public int insert(DisasterRequest disasterRequest){return mapper.insert(disasterRequest);}
 
-    public int update(DisasterRequest disasterRequest){return requestMapper.update(disasterRequest);}
+    public int update(DisasterRequest disasterRequest){return mapper.update(disasterRequest);}
 
-    public int delete(int ID){return requestMapper.delete(ID);}
+    public int delete(int ID){return mapper.delete(ID);}
 
     public Map<String,Object> getPage(Integer limit, Integer offset){
         Map<String,Object> resultMap = new HashMap();
         List<DisasterRequest> userList = null;
         Integer total = 0;
         try {
-            userList = requestMapper.getpage(offset,limit);
-            total = requestMapper.findAllCount();
+            userList = mapper.getpage(offset,limit);
+            total = mapper.findAllCount();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -42,5 +42,5 @@ public class DisasterRequestService {
         resultMap.put("total",total);
         return resultMap;
     }
-    public List<DisasterRequest> findAll(){return requestMapper.findAll();}
+    public List<DisasterRequest> findAll(){return mapper.findAll();}
 }

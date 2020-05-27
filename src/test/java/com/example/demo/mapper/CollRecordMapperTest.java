@@ -10,12 +10,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollRecordMapperTest {
-
     private static SqlSession sqlSession = null;
     private static SqlSessionFactory sqlSessionFactory = null;
 
@@ -28,60 +26,18 @@ class CollRecordMapperTest {
         sqlSession = sqlSessionFactory.openSession(true);
     }
 
-    @Test
-    void queryCR() {
-
-        CollRecord cr = sqlSession.selectOne("com.example.demo.mapper.CollRecordMapper.queryCR",1);
-        System.out.println(cr.toString());
-    }
 
     @Test
-    void queryAllCRs() {
-        List<CollRecord> list = sqlSession.selectList("com.example.demo.mapper.CollRecordMapper.queryAllCRs");
-        System.out.println("size:"+list.size());
-    }
-
-    @Test
-    void insertCR() {
-        CollRecord cd = new CollRecord();
-        cd.setDisasterID("testinsert");
-        cd.setDisasterDate("202005111803");
-        int result = sqlSession.insert("com.example.demo.mapper.CollRecordMapper.InsertCR",cd);
+    void insert() {
+        CollRecord collRecord = new CollRecord();
+        collRecord.setDisasterID("1234567891234562441");
+        collRecord.setNote("This is Unit Test");
+        int result = sqlSession.insert("com.example.demo.mapper.CollRecordMapper.insert",collRecord);
         sqlSession.commit();
         if (result > 0)
             System.out.println("存储成功");
         else System.out.println("存储失败");
     }
 
-    @Test
-    void deleteCR() {
-        int result = sqlSession.delete("com.example.demo.mapper.CollRecordMapper.DeleteCR",4);
-        if (result > 0)
-            System.out.println("删除成功");
-        else System.out.println("删除失败");
-    }
 
-    @Test
-    void updateCR() {
-        CollRecord cr = new CollRecord();
-        cr.setIdCollRecord(3);
-        cr.setNote("only set note testing update");
-        int result = sqlSession.update("com.example.demo.mapper.CollRecordMapper.UpdateCR",cr);
-        sqlSession.commit();
-        if (result > 0)
-            System.out.println("更新成功");
-        else System.out.println("更新失败");
-    }
-
-    @Test
-    void queryCR19() {
-    }
-
-    @Test
-    void deleteCR19() {
-    }
-
-    @Test
-    void updateCR19() {
-    }
 }

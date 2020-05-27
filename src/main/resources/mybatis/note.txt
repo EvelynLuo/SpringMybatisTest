@@ -1,4 +1,4 @@
-    <!-- 设置一个默认的连接环境信息 -->
+<!-- 设置一个默认的连接环境信息 -->
     <environments default="development">
         <!-- 连接环境信息，取一个任意唯一的名字 -->
         <environment id="development">
@@ -18,7 +18,12 @@
     </environments>
 
     <mappers>
+        <mapper resource="mapper/CivilSMapping.xml"/>
         <mapper resource="mapper/CollRMapping.xml"/>
+        <mapper resource="mapper/CommDMapping.xml"/>
+        <mapper resource="mapper/DeathSMapping.xml"/>
         <mapper resource="mapper/DisaPMapping.xml"/>
-
+        <mapper resource="mapper/DisasterInfoMapping.xml"/>
+        <mapper resource="mapper/DisasterRequestMapping.xml"/>
+        <mapper resource="mapper/LandslideRecordMapping.xml"/>
     </mappers>

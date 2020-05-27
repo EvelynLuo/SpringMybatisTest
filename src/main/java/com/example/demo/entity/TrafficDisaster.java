@@ -2,30 +2,28 @@ package com.example.demo.entity;
 
 import java.util.Arrays;
 
-public class CollRecord {
-    private int idCollRecord;
+/**
+ * @Data 2020/5/27 10:24
+ * @Author ruary
+ * @Version 1.0
+ * @Describe
+ **/
+public class TrafficDisaster {
+    private int idTrafficDisaster;
     private String disasterID;
-    private String location;
     private String disasterDate;
+    private String location;
     private String disasterType;
-    private String status;
-    private String note;
+    private String grade;
     private byte[] picture;
+    private String note;
     private String reportingUnit;
 
-    public CollRecord() {
+    public TrafficDisaster() {
     }
 
-    public CollRecord(String disasterID) {
-        this.disasterID = disasterID;
-    }
-
-    public int getIdCollRecord() {
-        return idCollRecord;
-    }
-
-    public void setIdCollRecord(int idCollRecord) {
-        this.idCollRecord = idCollRecord;
+    public int getIdTrafficDisaster() {
+        return idTrafficDisaster;
     }
 
     public String getDisasterID() {
@@ -36,20 +34,20 @@ public class CollRecord {
         this.disasterID = disasterID;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getDisasterDate() {
         return disasterDate;
     }
 
     public void setDisasterDate(String disasterDate) {
         this.disasterDate = disasterDate;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getDisasterType() {
@@ -60,20 +58,12 @@ public class CollRecord {
         this.disasterType = disasterType;
     }
 
-    public String getStatus() {
-        return status;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public byte[] getPicture() {
@@ -84,6 +74,14 @@ public class CollRecord {
         this.picture = picture;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     public String getReportingUnit() {
         return reportingUnit;
     }
@@ -92,18 +90,17 @@ public class CollRecord {
         this.reportingUnit = reportingUnit;
     }
 
-
     @Override
     public String toString() {
-        return "CollRecord{" +
-                "idCollRecord=" + idCollRecord +
+        return "TrafficDisaster{" +
+                "idTrafficDisaster=" + idTrafficDisaster +
                 ", disasterID='" + disasterID + '\'' +
-                ", location='" + location + '\'' +
                 ", disasterDate='" + disasterDate + '\'' +
+                ", location='" + location + '\'' +
                 ", disasterType='" + disasterType + '\'' +
-                ", status='" + status + '\'' +
-                ", note='" + note + '\'' +
+                ", grade='" + grade + '\'' +
                 ", picture=" + Arrays.toString(picture) +
+                ", note='" + note + '\'' +
                 ", reportingUnit='" + reportingUnit + '\'' +
                 '}';
     }

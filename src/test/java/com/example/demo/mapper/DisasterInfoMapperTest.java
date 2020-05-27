@@ -1,20 +1,21 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.DisaPrediction;
+import com.example.demo.entity.DisasterInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DisaPredictionMapperTest {
+class DisasterInfoMapperTest {
     private static SqlSession sqlSession = null;
     private static SqlSessionFactory sqlSessionFactory = null;
 
@@ -28,18 +29,14 @@ class DisaPredictionMapperTest {
     }
 
 
-
     @Test
     void insert() {
-        DisaPrediction d = new DisaPrediction();
-        d.setDisasterID("test");
-        d.setDisasterDate("202005131044");
-        d.setLocation("台湾省测试");
-        int result = sqlSession.insert("com.example.demo.mapper.DisaPredictionMapper.insert",d);
+        DisasterInfo d = new DisasterInfo();
+        d.setDisasterID("1234567891113450551");
+        int result = sqlSession.insert("com.example.demo.mapper.DisasterInfoMapper.insert",d);
         sqlSession.commit();
         if (result > 0)
             System.out.println("存储成功");
         else System.out.println("存储失败");
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.CivilStructure;
 import com.example.demo.entity.DeathStatistics;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -8,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 @Mapper
-public interface DeathMapper {
+public interface DeathStatisticsMapper {
     //update19
     DeathStatistics query(String disasterID);
     int insert(DeathStatistics d);

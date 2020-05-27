@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.CollRecord;
-import com.example.demo.entity.DisaPrediction;
-import com.example.demo.mapper.DisaPredictionMapper;
+import com.example.demo.entity.DisasterInfo;
+import com.example.demo.mapper.DisasterInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +9,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @Data 2020/5/27 11:18
+ * @Author ruary
+ * @Version 1.0
+ * @Describe
+ **/
 @Service
-public class DisaPredictionService {
-    @Autowired(required = false)
-    private DisaPredictionMapper mapper;
+public class DisasterInfoService {
 
-    public DisaPrediction query(String disasterID) {
+    @Autowired(required = false)
+    private DisasterInfoMapper mapper;
+
+    public DisasterInfo query(String disasterID) {
         return mapper.query(disasterID);
     }
 
-    public List<DisaPrediction> queryAll() {
+    public List<DisasterInfo> queryAll() {
         return mapper.queryAll();
     }
 
-    public int insert(DisaPrediction dp) {
+    public int insert(DisasterInfo dp) {
         return mapper.insert(dp);
     }
 
@@ -31,13 +37,13 @@ public class DisaPredictionService {
         return mapper.delete(ID);
     }
 
-    public int update(DisaPrediction dp) {
+    public int update(DisasterInfo dp) {
         return mapper.update(dp);
     }
 
     public Map<String, Object> getPage(Integer limit, Integer offset) {
         Map<String, Object> resultMap = new HashMap();
-        List<DisaPrediction> userList = null;
+        List<DisasterInfo> userList = null;
         Integer total = 0;
         try {
             userList = mapper.getpage(offset, limit);
@@ -50,7 +56,7 @@ public class DisaPredictionService {
         return resultMap;
     }
 
-    public List<DisaPrediction> findAll() {
+    public List<DisasterInfo> findAll() {
         return mapper.findAll();
     }
 }

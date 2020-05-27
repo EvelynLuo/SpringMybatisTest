@@ -29,7 +29,7 @@ public class CollRecordController {
 
     @ResponseBody
     @RequestMapping("/insert")
-    public int InsertDP(CollRecord collRecord){return  collRecordService.insert(collRecord);}
+    public int insert(CollRecord collRecord){return  collRecordService.insert(collRecord);}
 
     @ResponseBody
     @RequestMapping("/findAll")

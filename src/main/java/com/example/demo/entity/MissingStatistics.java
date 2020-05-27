@@ -1,7 +1,13 @@
 package com.example.demo.entity;
 
-public class DeathStatistics {
-    private Integer idDeathStatistics;
+/**
+ * @Data 2020/5/27 10:27
+ * @Author ruary
+ * @Version 1.0
+ * @Describe
+ **/
+public class MissingStatistics {
+    private Integer idMissingStatistics;
 
     private String disasterID;
 
@@ -13,19 +19,13 @@ public class DeathStatistics {
 
     private String reportingUnit;
 
-
-
-    public DeathStatistics(){
-        super();
+    public MissingStatistics() {
     }
 
-    public Integer getIdDeathStatistics() {
-        return idDeathStatistics;
+    public Integer getIdMissingStatistics() {
+        return idMissingStatistics;
     }
 
-    public void setIdDeathStatistics(Integer idDeathStatistics) {
-        this.idDeathStatistics = idDeathStatistics;
-    }
 
     public String getDisasterID() {
         return disasterID;
@@ -65,5 +65,17 @@ public class DeathStatistics {
 
     public void setReportingUnit(String reportingUnit) {
         this.reportingUnit = reportingUnit;
+    }
+
+    @Override
+    public String toString() {
+        return "MissingStatistics{" +
+                "idMissingStatistics=" + idMissingStatistics +
+                ", disasterID='" + disasterID + '\'' +
+                ", disasterDate='" + disasterDate + '\'' +
+                ", location='" + location + '\'' +
+                ", numberDeath=" + numberDeath +
+                ", reportingUnit='" + reportingUnit + '\'' +
+                '}';
     }
 }
