@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/testCommD")
+@RequestMapping("/CommDisaster")
 public class CommDisasterController {
     @Autowired(required = false)
     private  CommDisasterService commDisasterService;
