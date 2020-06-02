@@ -1,46 +1,48 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.CommDisaster;
+import com.example.demo.mapper.*;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReceiveJsonTest {
 
-    @Test
-    void getString() throws IOException {
-        String x = "{\n" +
-                "    \"idCommDisaster\" : 1,\n" +
-                "    \"key2\" : \"string\"\n" +
-                "}";
-        JSONObject jsonObject = JSONObject.fromObject(x);
-        String name = jsonObject.get("idCommDisaster").toString();
-        File root = new File(".");
-        String rootDir = root.getCanonicalPath();
-        rootDir += "\\src\\336\\CommDisaster\\";
-        System.out.println("当前工程所在文件夹：" + rootDir);
-        rootDir += "\\" + name + ".json";
-        File file = new File(rootDir);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }//如果文件不存在，建一个文件
+    private static SqlSession sqlSession = null;
+    private static SqlSessionFactory sqlSessionFactory = null;
 
-        BufferedWriter writer = null;
-
-        //写入
-        writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), "UTF-8"));
-        PrintWriter out = new PrintWriter(writer);
-        out.write(jsonObject.toString());
-        out.println();
-        writer.close();
-        out.close();
-
+    @BeforeAll
+    static void beforeAll() throws IOException {
+        //读取mybatis-config.xml文件
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis/mybatis-config.xml");
+        //初始化mybatis,创建SqlSessionFactory类的实例
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        sqlSession = sqlSessionFactory.openSession(true);
     }
+
+    @Test
+    void getReturnURL() {
+
+        for (int i = 0; i < 10; i++) {
+            Integer[] type = new Integer[]{111, 113, 221, 223, 331, 336, 441, 442, 551, 552};
+            String[] name = new String[]{"DeathStatistics", "MissingStatistics"
+                    , "CivilStructure", "MasonryStructure", "TrafficDisaster", "CommDisaster"
+                    , "CollRecord", "LandslideRecord", "DisasterInfo", "DisaPrediction"};
+            System.out.println("\\" + type[i] + "\\" + name[i] + ".json");
+        }
+    }
+
+
 }

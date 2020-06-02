@@ -1,6 +1,8 @@
 package com.example.demo.mapper;
 
+import com.example.demo.entity.CivilStructure;
 import com.example.demo.entity.CommDisaster;
+import net.sf.json.JSONObject;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,8 +10,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,5 +44,57 @@ class CommDisasterMapperTest {
         if (result > 0)
             System.out.println("存储成功");
         else System.out.println("存储失败");
+    }
+
+    @Test
+    void saveToURL() {
+        StringBuffer[] sb = new StringBuffer[10];
+        sb[5]=new StringBuffer("");
+        JSONObject combine = new JSONObject();
+        JSONObject jsonObject = new JSONObject();
+        String url;
+        Integer[] type = new Integer[]{111, 113, 221, 223, 331, 336, 441, 442, 551, 552};
+        String[] name = new String[]{"DeathStatistics", "MissingStatistics"
+                , "CivilStructure", "MasonryStructure", "TrafficDisaster", "CommDisaster"
+                , "CollRecord", "LandslideRecord", "DisasterInfo", "DisaPrediction"};
+        //int result = sqlSession.insert("com.example.demo.mapper.CommDisasterMapper.insert",d);
+        List<CommDisaster> list336 = sqlSession.selectList("com.example.demo.mapper.CommDisasterMapper.findAll");
+        sqlSession.commit();
+        for (CommDisaster commDisaster : list336) {
+            jsonObject = JSONObject.fromObject(commDisaster);
+            combine.put(new String(name[5]+commDisaster.getIdCommDisaster()),jsonObject);
+        }
+        sb[5].append(combine.toString());
+        System.out.println(sb[5]);
+        try {
+            File file = null;
+            BufferedWriter writer = null;
+            PrintWriter out = null;
+            //获取当前服务器地址
+            InetAddress address = InetAddress.getLocalHost();
+            url = address.getHostAddress();
+            int i = 5;
+            file = new File(url + "\\" + type[i]);
+            //首先需要建立目录
+            file.mkdirs();
+            file = new File(url + "\\" + type[i] + "\\" + name[i] + ".json");
+            //创建文件
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            //写入
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false), "UTF-8"));
+            out = new PrintWriter(writer);
+            out.write(String.valueOf(sb[i]));
+            out.println();
+
+            writer.close();
+            out.close();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

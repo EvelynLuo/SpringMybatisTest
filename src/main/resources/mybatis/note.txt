@@ -26,4 +26,7 @@
         <mapper resource="mapper/DisasterInfoMapping.xml"/>
         <mapper resource="mapper/DisasterRequestMapping.xml"/>
         <mapper resource="mapper/LandslideRecordMapping.xml"/>
+        <mapper resource="mapper/MasonryStructureMapping.xml"/>
+        <mapper resource="mapper/MissingStatisticsMapping.xml"/>
+        <mapper resource="mapper/TrafficDisasterMapping.xml"/>
     </mappers>
